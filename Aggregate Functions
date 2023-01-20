@@ -1,0 +1,46 @@
+SQL Lesson 10: Queries with aggregates (Pt. 1)
+1.Find the longest time that an employee has been at the studio
+ANS = SELECT max(years_employed) as FROM employees;
+2.For each role, find the average number of years employed by employees in that role
+ANS =SELECT role, AVG(years_employed) as Average_years_employed
+		FROM employees
+		GROUP BY role;
+3.Find the total number of employee years worked in each building
+ANS = SELECT building, sum(years_employed)as total_number_Employee FROM employees
+		group by building;
+
+SQL Lesson 11: Queries with aggregates (Pt. 2)
+Exercise 11 — Tasks
+1.Find the number of Artists in the studio (without a HAVING clause) ✓
+ANS= Select role, count(*) as number_of_artist from employees where role = "Artist"
+2.Find the number of Employees of each role in the studio
+ANS =  Select role, count() from employees group by role;
+3.Find the total number of years employed by all Engineers
+ANS =SELECT role, SUM(years_employed)
+		FROM employees
+		GROUP BY role
+		HAVING role = "Engineer";
+
+SQL Lesson 12: Order of execution of a Query
+
+SELECT DISTINCT column, AGG_FUNC(column_or_expression), …
+FROM mytable
+    JOIN another_table
+      ON mytable.column = another_table.column
+    WHERE constraint_expression
+    GROUP BY column
+    HAVING constraint_expression
+    ORDER BY column ASC/DESC
+    LIMIT count OFFSET COUNT;
+
+Exercise 12 — Tasks
+**IMP Q.1 Find the number of movies each director has directed
+ANS = SELECT director, COUNT(id) as Num_movies_directed
+		FROM movies
+		GROUP BY director;
+**IMP Q2. Find the total domestic and international sales that can be attributed to each director
+ANS = Select Director, sum(domestic_sales + international_sales) as Toatal_sales 
+		from boxoffice 
+		join movies 
+		on movie_id = id 
+		group by director 
