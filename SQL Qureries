@@ -1,5 +1,5 @@
 SQL Simple Qurries
-
+=============================
 Exercise 1 — Tasks
 1. Find the title of each film
 ANS = SELECT title FROM movies;
@@ -11,6 +11,7 @@ ANS =SELECT title, director FROM movies;
 ANS = SELECT * FROM movies;
 
 SQL Lesson 2: Queries with constraints (Pt. 1)
+======================================================
 Exercise 2 — Tasks
 1. Find the movie with a row id of 6
 ANS = SELECT title FROM movies where id = 6;
@@ -22,6 +23,7 @@ ANS = Select title, year from movies where year not between 2000 and 2010;
 ANS = Select title, year from movies where year limit 5;
 
 SQL Lesson 3: Queries with constraints (Pt. 2)
+==================================================
 Exercise 3 — Tasks
 1.Find all the Toy Story movies
 ANS =SELECT title FROM movies where title like "Toy%";
@@ -33,6 +35,7 @@ SELECT title FROM movies where director not like "John%";
 ANS = SELECT title FROM movies where title like "Wall%";
 
 SQL Lesson 4: Filtering and sorting Query results
+=======================================================
 Exercise 4 — Tasks
 1.List all directors of Pixar movies (alphabetically), without duplicates
 ANS =SELECT Distinct(title) FROM movies order by director; 
@@ -44,6 +47,7 @@ ANS =SELECT Distinct(title) FROM movies order by title asc limit 5;
 ANS = SELECT Distinct(title) FROM movies order by title asc limit 5 offset 5; ---- Using Offset command
 
 SQL Review: Simple SELECT Queries
+=======================================
 Review 1 — Tasks
 1.List all the Canadian cities and their populations
 ANS =SELECT city, population FROM north_american_cities where country = "Canada";
