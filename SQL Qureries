@@ -1,0 +1,59 @@
+SQL Simple Qurries
+
+Exercise 1 — Tasks
+1. Find the title of each film
+ANS = SELECT title FROM movies;
+2. Find the director of each film
+ANS =SELECT director FROM movies;
+3. Find the title and director of each film
+ANS =SELECT title, director FROM movies;
+4. Find all the information about each film
+ANS = SELECT * FROM movies;
+
+SQL Lesson 2: Queries with constraints (Pt. 1)
+Exercise 2 — Tasks
+1. Find the movie with a row id of 6
+ANS = SELECT title FROM movies where id = 6;
+2. Find the movies released in the years between 2000 and 2010
+ANS =Select title, year from movies where year between 2000 and 2010;
+3. Find the movies not released in the years between 2000 and 2010
+ANS = Select title, year from movies where year not between 2000 and 2010;
+4. Find the first 5 Pixar movies and their release year
+ANS = Select title, year from movies where year limit 5;
+
+SQL Lesson 3: Queries with constraints (Pt. 2)
+Exercise 3 — Tasks
+1.Find all the Toy Story movies
+ANS =SELECT title FROM movies where title like "Toy%";
+2.Find all the movies directed by John Lasseter
+ANS = SELECT title FROM movies where director like "John%";
+3.Find all the movies (and director) not directed by John Lasseter
+SELECT title FROM movies where director not like "John%";
+4.Find all the WALL-* movies
+ANS = SELECT title FROM movies where title like "Wall%";
+
+SQL Lesson 4: Filtering and sorting Query results
+Exercise 4 — Tasks
+1.List all directors of Pixar movies (alphabetically), without duplicates
+ANS =SELECT Distinct(title) FROM movies order by director; 
+2.List the last four Pixar movies released (ordered from most recent to least)
+ANS =SELECT Distinct(title) FROM movies order by year desc limit 4; 
+3.List the first five Pixar movies sorted alphabetically
+ANS =SELECT Distinct(title) FROM movies order by title asc limit 5; 
+4.List the next five Pixar movies sorted alphabetically
+ANS = SELECT Distinct(title) FROM movies order by title asc limit 5 offset 5; ---- Using Offset command
+
+SQL Review: Simple SELECT Queries
+Review 1 — Tasks
+1.List all the Canadian cities and their populations
+ANS =SELECT city, population FROM north_american_cities where country = "Canada";
+Order all the cities in the United States by their latitude from north to south
+ANS =select city, latitude from north_american_cities where country = 'United States' order by latitude desc;
+List all the cities west of Chicago, ordered from west to east
+ANS =SELECT city, longitude FROM north_american_cities
+		WHERE longitude < -87.629798
+		ORDER BY longitude ASC;
+List the two largest cities in Mexico (by population)
+ANS =Select city, population from North_american_cities where country ="Mexico" order by population desc limit 2;
+List the third and fourth largest cities (by population) in the United States and their population
+ANS =Select city, population from North_american_cities where country ="United States" order by population desc limit 2 offset 2;
